@@ -1,0 +1,32 @@
+@import './fonts.scss';
+@import './reset.scss';
+
+:root {
+  --background-color-dark: #0d1117;
+  --font-color-dark: #e6edf3;
+  --font-montsserat: 'Montserrat', sans-serif;
+  --font-nato-sans: 'Noto Sans', sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: var(--font-montsserat);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--font-color-dark);
+
+  background-color: var(--background-color-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-nato-sans);
+  font-weight: 700;
+}
