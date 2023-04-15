@@ -3,9 +3,21 @@
 
 :root {
   --background-color-dark: #0d1117;
+  --header-background-dark: #161b22;
+  --border-dark: 0.1rem solid #30363d;
+  --border-radius: 0.4rem;
+  --button-background-dark: #21262d;
+  --button-border-color-dark: #8b949e;
+
   --font-color-dark: #e6edf3;
   --font-montsserat: 'Montserrat', sans-serif;
   --font-nato-sans: 'Noto Sans', sans-serif;
+
+  --outline-dark: 1px solid #7a977a;
+
+  --blur: blur(2px);
+
+  --transition: 0.2s;
 }
 
 html {

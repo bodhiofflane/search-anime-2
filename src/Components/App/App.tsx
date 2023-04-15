@@ -1,6 +1,5 @@
 
-
-import AsyncAnimeList from '../../Features/AsyncAnimeList/AsyncAnimeList';
+import AnimeList from '../../Features/AnimeList/AnimeList';
 import AppFooter from '../../Layouts/AppFooter/AppFooter';
 import AppHeader from '../../Layouts/AppHeader/AppHeader';
 import AppMain from '../../Layouts/AppMain/AppMain';
@@ -13,7 +12,7 @@ function App() {
     <div className="app">
       <AppHeader/>
       <AppMain>
-        <AsyncAnimeList/>
+        <AnimeList/>
       </AppMain>
       <AppFooter/>
     </div>

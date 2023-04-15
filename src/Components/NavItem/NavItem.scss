@@ -1,0 +1,10 @@
+.nav-item {
+  position: relative;
+
+  margin-right: 1.5rem;
+
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

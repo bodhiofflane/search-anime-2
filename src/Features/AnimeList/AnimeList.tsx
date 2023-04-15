@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks/useAppHooks';
-import {fetchAnimeList} from './asyncAnimeListActions';
+import {fetchAnimeList} from './animeListActions';
 
 const AsyncAnimeList = () => {
   const dispatch = useAppDispatch();

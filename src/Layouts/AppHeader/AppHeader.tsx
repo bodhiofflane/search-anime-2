@@ -1,10 +1,15 @@
+import AppLogo from '../../Components/AppLogo/AppLogo';
+import Login from '../../Components/Login/Login';
+import Navigator from '../../Components/Navigator/Navigator';
 import './AppHeader.scss';
 
 const AppHeader = () => {
   return (
-    <div className="app-header">
-      <h1>Header</h1>
-    </div>
+    <header className="app-header">
+      <AppLogo/>
+      <Navigator/>
+      <Login/>
+    </header>
   );
 }
  

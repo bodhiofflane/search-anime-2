@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import { AnimeListWithPaginationLocal } from '../../utils/transformData';
 
-import { fetchAnimeList } from './asyncAnimeListActions';
+import { fetchAnimeList } from './animeListActions';
 
 type AmimeListSlice = {
   status: 'idle' | 'loading' | 'error';

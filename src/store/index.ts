@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 
-import animeList from '../Features/AsyncAnimeList/asyncAnimeListSlice';
+import animeList from '../Features/AnimeList/animeListSlice';
 
 const store = configureStore({
   reducer: {

@@ -4,9 +4,9 @@ import './AppMain.scss';
 
 const AppMain = ({children}: AppMainProps) => {
   return (
-    <div className="app-main">
+    <main className="app-main">
       {children}
-    </div>
+    </main>
   );
 }
  
