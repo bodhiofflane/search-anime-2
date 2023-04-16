@@ -27,22 +27,20 @@ const Dropdown = ({text}: {text: string}) => {
 
   return (
     <>
-      <button
-        className='nav__link'
-        //className="dropdown__button"
-        ref={dropdownBtnRef}
-        onClick={handleOpenDropdown}
-      >
-        {text}
-      </button>
-      <span>
+      <div className="dropdown__actions">
+        <button
+          className="nav__link"
+          ref={dropdownBtnRef}
+          onClick={handleOpenDropdown}
+        >
+          {text}
+        </button>
         <AiOutlineDown
           className={`dropdown__button-arrow${
             isActive ? ' dropdown__button-arrow--open' : ''
           }`}
         />
-      </span>
-
+      </div>
       <div
         ref={dropdownContentRef}
         className={`dropdown${isActive ? ' dropdown--open' : ''}`}

@@ -1,16 +1,20 @@
 .nav {
   display: flex;
 
+  &__link {
+    
+  }
+
   &__item {
     position: relative;
 
     margin-right: 1rem;
 
-    transition: filter 0.7s;
+    transition: all 0.5s;
 
     &--blur {
       filter: var(--blur);
-      //opacity: 0;
+      opacity: 0.4;
     }
 
     &:last-child {

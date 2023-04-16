@@ -7,74 +7,76 @@ import './Navigator.scss';
 const links = ['Home', 'Random Anime', 'Categories', 'About'];
 
 const Navigator = () => {
-  const [activeItem, setActiveItem] = useState<null | number>(null);
+  // States
+  const [activeEl, setActiveEl] = useState<string | null>(null);
 
+  // Refs
   const navRef = useRef<HTMLUListElement>(null);
-  const navLinksRef = useRef<HTMLAnchorElement[]>([]);
+  const navItemsRef = useRef<HTMLLIElement[]>([]);
 
+  // Handlers
+  const handlerActivationItem = function (e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('nav__link')) {
+      const itemEl = target.closest('.nav__item');
+      if (itemEl) {
+        setActiveEl(itemEl.getAttribute('data-index'));
+      }
+    }
+  };
 
+  const handlerDeactivationItem = function (e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('nav__link')) {
+      setActiveEl(null);
+    }
+  };
+
+  // UseEffect
   useEffect(() => {
-    navRef.current?.addEventListener('mouseover', (e) => {
-      const target = e.target as HTMLElement;
-      const current = e.currentTarget as HTMLElement;
-      if (target.classList.contains('nav__link')) {
-        navLinksRef.current.forEach((link, index) => {
-          if (target !== link) {
-            link.classList.add('nav__item--blur');
-          }
-        })
-      }
-    });
+    navRef.current?.addEventListener('mouseover', handlerActivationItem);
+    navRef.current?.addEventListener('mouseout', handlerDeactivationItem);
 
-    navRef.current?.addEventListener('mouseout', (e) =>{
-      const target = e.target as HTMLElement;
-      const current = e.currentTarget as HTMLElement;
-      if (target.classList.contains('nav__link')) {
-        navLinksRef.current.forEach(link => {
-          link.classList.remove('nav__item--blur');
-        })
-      }
-    })
+    return () => {
+      navRef.current?.removeEventListener('mouseover', handlerActivationItem);
+      navRef.current?.removeEventListener('mouseout', handlerDeactivationItem);
+    };
   }, []);
 
-  console.log('rerender');
-  
+  console.log('Навигация обновилась', activeEl);
 
+  // Render
   return (
     <ul
       ref={navRef}
       className="nav"
     >
       {links.map((item, index) => {
-        if (item === 'Categories') {
-          return (
-            <li
-              className="nav__item"
-              key={item}
-            >
-              <Dropdown
-                text={item}
-              />
-            </li>
-          );
-        } else {
-          return (
-            <li
-              className="nav__item"
-              key={item}
-            >
+        return (
+          <li
+            ref={(el) => {
+              if (el) navItemsRef.current[index] = el;
+            }}
+            data-index={`${index}`}
+            className={`nav__item${
+              activeEl && index.toString() !== activeEl
+                ? ' nav__item--blur'
+                : ''
+            }`}
+            key={item}
+          >
+            {item === 'Categories' ? (
+              <Dropdown text={item} />
+            ) : (
               <a
-                ref={(el) => {
-                  if (el) navLinksRef.current[index] = el;
-                }}
                 href="#"
                 className="nav__link"
               >
                 {item}
               </a>
-            </li>
-          );
-        }
+            )}
+          </li>
+        );
       })}
     </ul>
   );
