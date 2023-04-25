@@ -3,10 +3,11 @@ import {useEffect, useState, useRef, useMemo} from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 
 import './Navigator.scss';
+import { NavigatorPorps } from './Navigator.props';
 
 const links = ['Home', 'Random Anime', 'Categories', 'About'];
 
-const Navigator = () => {
+const Navigator = ({direction}: NavigatorPorps) => {
   // States
   const [activeEl, setActiveEl] = useState<string | null>(null);
 
@@ -32,7 +33,6 @@ const Navigator = () => {
     }
   };
 
-  // UseEffect
   useEffect(() => {
     navRef.current?.addEventListener('mouseover', handlerActivationItem);
     navRef.current?.addEventListener('mouseout', handlerDeactivationItem);
@@ -49,7 +49,7 @@ const Navigator = () => {
   return (
     <ul
       ref={navRef}
-      className="nav"
+      className={`nav${direction === 'col' ? ' nav--direction-col' : ''}`}
     >
       {links.map((item, index) => {
         return (

@@ -1,8 +1,15 @@
 .nav {
   display: flex;
 
-  &__link {
-    
+  &--direction-col {
+    flex-direction: column;
+
+    margin-bottom: 2rem;
+
+    .nav__item {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
   }
 
   &__item {
