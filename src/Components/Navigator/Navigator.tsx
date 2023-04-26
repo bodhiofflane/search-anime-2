@@ -1,11 +1,18 @@
 import {useEffect, useState, useRef, useMemo} from 'react';
 
+import {NavLink} from 'react-router-dom';
+
 import Dropdown from '../Dropdown/Dropdown';
 
 import './Navigator.scss';
 import { NavigatorPorps } from './Navigator.props';
 
-const links = ['Home', 'Random Anime', 'Categories', 'About'];
+const links = [
+  {title: 'All Anime', path: 'search'},
+  {title: 'Random Anime', path: 'random-anime'},
+  {title: 'Categories', path: '*'},
+  {title: 'About', path: 'about'},
+];
 
 const Navigator = ({direction}: NavigatorPorps) => {
   // States
@@ -63,17 +70,19 @@ const Navigator = ({direction}: NavigatorPorps) => {
                 ? ' nav__item--blur'
                 : ''
             }`}
-            key={item}
+            key={item.title}
           >
-            {item === 'Categories' ? (
-              <Dropdown text={item} />
+            {item.title === 'Categories' ? (
+              <Dropdown text={item.title} />
             ) : (
-              <a
-                href="#"
-                className="nav__link"
+              <NavLink
+                to={item.path}
+                className={({isActive}) =>
+                  'nav__link' + (isActive ? ' nav__link--active' : '')
+                }
               >
-                {item}
-              </a>
+                {item.title}
+              </NavLink>
             )}
           </li>
         );

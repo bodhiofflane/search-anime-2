@@ -1,0 +1,19 @@
+.anime-list {
+
+  &__title {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+
+    font-size: var(--h2-size);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+
+    padding: 1.5rem;
+
+    border-radius: var(--border-radius);
+    background-color: var(--header-background-dark);
+  }
+}
