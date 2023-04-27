@@ -11,6 +11,8 @@
 
   background-color: var(--header-background-dark);
 
+  z-index: 999;
+
   &__actions {
     display: flex;
     align-items: center;

@@ -1,6 +1,10 @@
+import Slider from '../../Components/Slider/Slider';
+
 const MainPage = () => {
   return (
-    <h2>Это главная страница</h2>
+    <div className="main-page">
+      <Slider/>
+    </div>
   );
 }
  
